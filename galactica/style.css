@@ -1,0 +1,19 @@
+/*html, body {
+	width: 100%;
+}
+*/
+.empty {
+	background-color: blue;
+/*	width:100%;
+	height:100%;*/
+/*	width:3%;
+	height:3%;*/
+	width:5px;
+	height:5px;
+}
+
+.stuff {
+	background-color: orange;
+	width:5px;
+	height:5px;
+}

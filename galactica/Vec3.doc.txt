@@ -1,0 +1,54 @@
+>>>> Vec3 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+Class to give the possibility to work on the vector by diffente operation and methods.
+
+
+function add(Vector $a):Vec3;
+
+function sub(Vector $s):Vec3;
+
+function mult(Vector $m):Vec3;
+
+function mult_scal($m):Vec3;
+
+function div(Vector $d):Vec3;
+
+function mag():float;
+
+function normalize():Vec3;
+
+function opposite():Vec3;
+
+function dot(Vec3 $vec):float;
+
+function cross(Vec3 $vec):Vector;
+
+function cos(Vec3 $vec):float;
+
+
+// set
+function set_x($x);
+
+function set_y($y);
+
+function set_z($z);
+
+function set_xyz($x, $y, $z);
+
+function set_all($arg);
+> set all argument x, y, z to arg
+
+
+
+// get
+function get_x():float;
+
+function get_y():float;
+
+function get_z():float;
+
+function get_xyz():Vec3;
+>return the current Vec3
+
+// copy
+function copy():Vec3;
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Vec3 <<<

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+		 display : 100%;
+		</style>
+		<title>GALACTICA</title>
+		<script>
+			function load_game() {
+				var xmlhttp = new XMLHttpRequest();
+	    	xmlhttp.onreadystatechange = function() {
+	      if (this.readyState == 4 && this.status == 200) {
+	        document.getElementById("map").innerHTML = this.responseText;
+	      }
+	    };
+	    xmlhttp.open("GET", "A_jeu.php", true);
+	    xmlhttp.send();
+	  }
+	</script>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	 <body onload="load_game()"> 
+			<div id="map" >
+				<!--  -->
+			</div>
+	</body>
+</html>
