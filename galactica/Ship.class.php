@@ -1,18 +1,18 @@
 <?php
 class Ship extends Group implements Object {
   // here we need Trait to share the thee method name, size... may be ?
-	$mass;
-	$size;
+	$mass; // point de coque
+	$size; // Vec2 h*w
 	$pos;
-	$dir;
+	$dir; // need for the weapon
 
-	// $health;
-	// $shield;
-	// $force_field;
-	// $energy;
+	// $armor; // bouclier
+	$force_field; // bouclier + need power
+  $manoeuvre; // masse + size / engine->handling - engine->power
+	$engine; // engine->power + engine->speed >>> PP
 
-	// $engine;
-	// $weapon;
+	$slot_weapon; // size - mass
+	$weapon_list; 
 
 	// set
 	function set_id($id) {
@@ -27,12 +27,12 @@ class Ship extends Group implements Object {
 		$this->dir = $dir;
 	}
 
-	function set_size($size) {
-		$this->size = $size;
+	function set_size($w, $h) {
+		$this->size = new Vec3($w, $h, 0);;
 	}
 
 	function set_pos($x, $y) {
-		$this->pos = new Vec3($x, $y, 0.0);
+		$this->pos = new Vec3($x, $y, 0);
 	}
   
   // get
