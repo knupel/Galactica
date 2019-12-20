@@ -1,11 +1,4 @@
 <?php
-	include_once("Map.class.php");
-	include_once("Vec3.class.php");
-	include_once("Stuff.class.php");
-	include_once("S_Asteroid.class.php");
-	
-
-	// SETTING
 	$list_obj;
 	$canvas = new Vec3(array("x"=>150, "y"=>100, "z"=>0));
 	$is = false;
@@ -14,7 +7,7 @@
 		$list_obj = stuff_generator($canvas, $list_obj);
 		$is = true;
 	}
-	
+	$map = new Map($canvas,$list_obj);
 
 
 	function stuff_generator($canvas, $list_obj) {
@@ -32,9 +25,12 @@
 		return $list_obj;
 	}
 
+
+
 	function logging() {
 
 	}
+
 
 	function set_leader() {
 		// create leader
@@ -45,34 +41,6 @@
 		// use point to build a fleet in between all ships available,
 		// display the file where the player can choice ships.
 	}
-  
-  // RESOLUTION
-	function game () {
-		order();
-		move();
-		shoot();
-		score();
-	}
 
-
-	function order() {
-
-	}
-
-	function move() {
-		
-	}
-
-	function shoot() {
-		
-	}
-
-	function score() {
-
-	}
-
-	// SHOW
-	$map = new Map($canvas,$list_obj);
-	print($map->show_map($list_obj));
 
 ?>

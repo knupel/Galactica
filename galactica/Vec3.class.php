@@ -161,12 +161,12 @@
 		}
 
 		public static function doc() {
-    	$read = fopen("Vec3.doc.txt", 'r');
-    	echo PHP_EOL;
-    	while ($read && !feof($read)) {
-    		echo fgets($read);
-    	}
-    	echo PHP_EOL;
+			$read = fopen("doc/Vec3.doc.txt", 'r');
+			echo PHP_EOL;
+			while ($read && !feof($read)) {
+				echo fgets($read);
+			}
+			echo PHP_EOL;
     }
 	}
 ?>
