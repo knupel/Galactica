@@ -1,12 +1,12 @@
 >>>> Map <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-function show_map($list):string;
+function show_map():string;
+
+function set_map($list):string;
 
 function get_stuff_list():array;
 
 function get_id_elem($x, $y, array $list):int;
 
-function get_col():int;
-
-function get_row():int;
+function get_grid():array;
 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Map <<<

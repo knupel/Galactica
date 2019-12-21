@@ -1,9 +1,11 @@
 <?php
 class Group {
 	private $name;
+	private $nickname;
 	private $group;
-	function __construct($name, $group) {
-		$this->name = $name;;
+	function __construct($name, $nickname, $group) {
+		$this->name = $name;
+		$this->nickname = $nickname;
 		$this->group = $group;
 		return;
 	}
@@ -16,6 +18,10 @@ class Group {
   // get
 	function get_name():string {
 		return $this->name;
+	}
+
+	function get_nickname():string {
+		return $this->nickname;
 	}
 
 	function get_group():string {

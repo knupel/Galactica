@@ -16,7 +16,7 @@ function get_id():int;
 
 function get_mass():int;
 
-function get_size():int;
+function get_size();
 
 function get_pos();
 

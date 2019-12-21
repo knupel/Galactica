@@ -1,11 +1,11 @@
 <?php
-class Engine {
-	$name;
+class SH_Engine {
+	public $name = "Merco";
 
-	$power;
-	$speed;
-	$handling;
+	public $power = 10;
+	public $speed = 10;
+	public $handling = 10;
 
-	$sol_is; // speed of light
+	public $sol_is = false; // speed of light
 }
 ?>

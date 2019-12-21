@@ -6,7 +6,7 @@
 		</style>
 		<title>GALACTICA</title>
 		<script>
-			function load_game() {
+			function game() {
 				var xmlhttp = new XMLHttpRequest();
 	    	xmlhttp.onreadystatechange = function() {
 	      if (this.readyState == 4 && this.status == 200) {
@@ -19,7 +19,7 @@
 	</script>
 	<link rel="stylesheet" type="text/css" href="style.css" />
 	</head>
-	 <body onload="load_game()"> 
+	 <body onload="game()"> 
 			<div id="map" >
 				<!--  -->
 			</div>
