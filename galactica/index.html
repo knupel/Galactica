@@ -1,27 +1,45 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<style>
-		 display : 100%;
-		</style>
 		<title>GALACTICA</title>
 		<script>
 			function game() {
 				var xmlhttp = new XMLHttpRequest();
 	    	xmlhttp.onreadystatechange = function() {
-	      if (this.readyState == 4 && this.status == 200) {
-	        document.getElementById("map").innerHTML = this.responseText;
-	      }
-	    };
-	    xmlhttp.open("GET", "A_jeu.php", true);
-	    xmlhttp.send();
-	  }
-	</script>
-	<link rel="stylesheet" type="text/css" href="style.css" />
+	    		if (this.readyState == 4 && this.status == 200) {
+						document.getElementById("render").innerHTML = this.responseText;
+						gui();
+		      }
+		    };
+		    // $_POST['text'] = 'another value';
+		    // xmlhttp.open("GET", "A_jeu.php", true);
+		    xmlhttp.open("POST", "A_jeu.php", true);
+				xmlhttp.send(next_value);
+				console.log(next_value);
+		  }
+
+		  function gui() {
+		  	document.getElementById("button_next_round").addEventListener("click", next);
+		  }
+			let next_value = 0;
+			function next() {
+				// console.log("next");
+				// console.log(next_value);
+				next_value++;
+			}
+		</script>
+		<link rel="stylesheet" type="text/css" href="style/ship.css" />
+		<link rel="stylesheet" type="text/css" href="style/map.css" />
+		<link rel="stylesheet" type="text/css" href="style/gui.css" />
 	</head>
-	 <body onload="game()"> 
-			<div id="map" >
+	 <body onload="game()">
+			<div id="render" >
 				<!--  -->
 			</div>
+			<div onclick="game()" id="button_next_round">
+			</div>
+			<div>
+			
+</div>
 	</body>
 </html>

@@ -6,7 +6,6 @@
 	include_once("Ship.class.php");
 	include_once("A_manage_fleet.php");
 
-	
 	// SETTING
 	$list_obj;
 	$list_fleet;
@@ -33,8 +32,21 @@
 	// UPDATE
   update_game($canvas, $map, $list_fleet);
   $round++;
+  echo "ROUND: ".$round."\n";
+
+  // print_r($_PUT);
 
 	print($map->show_map());
+	print_r($_GET);
+	print_r($_POST);
+
+	foreach($_POST as $key=>$val) {
+		echo $key.": ".$val."\n";
+	}
+
+	foreach($_GET as $key=>$val) {
+		echo $key.": ".$val."\n";
+	}
 
 
 	
@@ -74,23 +86,12 @@
 		// order();
 		init_fleet($canvas, $list_fleet);
 		show_fleet($canvas, $map, $list_fleet);
-		// move($map, $list_fleet);
+		move_fleet($map, $list_fleet);
 		// shoot();
 		// score();
 	}
 
-	function move($map, $list_fleet) {
-		
-		// print_r($map->get_grid());
-		foreach($list_fleet as $sh) {
-			for($i = 0 ; $i < $map->get_grid() ; $i++) {
-				// basic colission system
-				//if()
-
-			}
-		}
-		
-	}
+	
 
 	function shoot() {
 		

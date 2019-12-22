@@ -1,4 +1,6 @@
 <?php
+	// include_once("U_utils.php");
+
 	function set_fleet($list):array {
 		$ship_rebel = new Ship("Cruiser", "wrath of God", "Rebel");
 		$ship_rebel->build(5,2);
@@ -24,17 +26,16 @@
 	}
 
 	function show_fleet($canvas, $map, $list_fleet) {
-		$len = count($list_fleet);
-		// echo "fleet size: ".$len."\n";
 		$map->set_map($list_fleet);
-		
+	}
 
+
+	function move_fleet($map, $list_fleet) {
+
+		// print_r($map->get_grid());
 		foreach($list_fleet as $sh) {
-			// echo "name: ".$sh->get_name()."\n";
-			// echo "group:".$sh->get_group()."\n";
-			// echo "type:".$sh->get_type()."\n";		
 		}
-
+		
 	}
 
 ?>
