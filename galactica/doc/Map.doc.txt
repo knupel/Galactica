@@ -1,7 +1,7 @@
 >>>> Map <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 function show_map():string;
 
-function set_map($list):string;
+function set_map($list, $check_collision_is):string;
 
 function get_stuff_list():array;
 

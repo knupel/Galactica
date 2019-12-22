@@ -1,5 +1,13 @@
 <?php
 	// include_once("U_utils.php");
+	function update_fleet($canvas, $map, $list_fleet) {
+		// order();
+		init_fleet($canvas, $list_fleet);
+		show_fleet($canvas, $map, $list_fleet);
+		move_fleet($map, $list_fleet);
+		// shoot();
+		// score();
+	}
 
 	function set_fleet($list):array {
 		$ship_rebel = new Ship("Cruiser", "wrath of God", "Rebel");
@@ -18,15 +26,22 @@
 
 	function init_fleet($canvas, $list_fleet) {
 		foreach($list_fleet as $sh) {
-			if(!$sh->get_born_is()) {
-				$sh->set_pos(0,rand(0,$canvas->get_y()));
-				$sh->set_born_is(true);
+			$grp = strtolower($sh->get_group());
+			$offset_x = 0 ;
+			$offset_y = $sh->get_size()->get_y();
+			if(strcmp($grp,"empire") == 0) {
+				$offset_x = $canvas->get_x() - $sh->get_size()->get_x();
+			} else if(strcmp($grp,"rebel") == 0) {
+        //
 			}
+			$sh->set_pos($offset_x,rand(0,$canvas->get_y() - $offset_y));
+			$sh->set_born_is(true);	
 		}
 	}
 
 	function show_fleet($canvas, $map, $list_fleet) {
-		$map->set_map($list_fleet);
+		$check_collision = true;
+		$map->set_map($list_fleet,$check_collision);
 	}
 
 
@@ -34,7 +49,14 @@
 
 		// print_r($map->get_grid());
 		foreach($list_fleet as $sh) {
+
 		}
+		
+	}
+
+
+
+	function shoot() {
 		
 	}
 

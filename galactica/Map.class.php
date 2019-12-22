@@ -18,10 +18,12 @@ class Map {
 	}
 
 	// set map with stuff position
-	public function set_map($list) {
+	public function set_map($list, $check_collision_is):int {
 		$width = $this->canvas->get_x();
 		$height = $this->canvas->get_y();
 		$len = $width * $height;
+
+		$collistion = 0;
 		// init grid
 		for($i = 0 ; $i < $len ; $i++) {
 			array_push($this->grid,0);
@@ -31,13 +33,18 @@ class Map {
 				$type = $this->get_type($x, $y, $list);
 				$target = $width * $y + $x;
 				if ($type != 0) {
-					$this->set_cell($this->get_elem($x, $y, $list));
+					if($check_collision_is) {
+						$collistion = $this->set_cell($this->get_elem($x, $y, $list),$check_collision_is);
+					} else {
+						$this->set_cell($this->get_elem($x, $y, $list),$check_collision_is);
+					}
 				}
 			}
 		}
+		return $collistion;
 	}
 
-	private function set_cell($elem) {
+	private function set_cell($elem, $check_collision_is):int {
 		$el_x = $elem->get_pos_x();
 		$el_y = $elem->get_pos_y();
 		$el_width = $elem->get_size()->get_x();
@@ -49,10 +56,15 @@ class Map {
 				$temp_y = $y + $el_y;
 				if($temp_x < $this->canvas->get_x() && $temp_y < $this->canvas->get_y()) {
 					$target = $this->canvas->get_x() * $temp_y + $temp_x;
+					if($check_collision_is && $this->grid[$target] != 0) {
+						echo "collision"."\n";
+						return 1;
+					}
 					$this->grid[$target] = $elem->get_type();
 				}
 			}
 		}
+		return 0;
 	}
 
 	// show to html page
