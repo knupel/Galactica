@@ -1,10 +1,22 @@
 <?php
-class Leader extends Group {
+include_once("Group.trait.php");
+class Leader {
+	use Group;
+	private $name;
+	private $nickname;
 	private $rank = 0;
 	private $party = 0;
 	private $victory = 0;
 	private $destroy = 0;
-  
+  // set 
+  function set_name() {
+		$this->name = $name;
+	}
+
+	function set_nickname() {
+		$this->nickname = $nickname;
+	}
+
   // add
 	function add_destroy($destroy) {
 		$this->destroy += $destroy;
@@ -24,6 +36,15 @@ class Leader extends Group {
 	}
 
 	// get
+	function get_name():string {
+		return $this->name;
+	}
+
+	function get_nickname():string {
+		return $this->nickname;
+	}
+
+
 	function get_victory():int {
 		return $this->victory;
 	}

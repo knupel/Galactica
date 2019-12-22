@@ -42,6 +42,7 @@ class Map {
 		$el_y = $elem->get_pos_y();
 		$el_width = $elem->get_size()->get_x();
 		$el_height = $elem->get_size()->get_y();
+
 		for($x = 0 ; $x < $el_width ; $x++) {
 			for($y = 0 ; $y < $el_height ; $y++) {
 				$temp_x = $x + $el_x;
@@ -64,8 +65,32 @@ class Map {
 				$target = $width * $y + $x;
 				if ($this->grid[$target] == 0) {
 					$html .= "<td class='case empty'></td>";
-				} else {
+				} else if($this->grid[$target] == 5) {
 					$html .= "<td class='case stuff'></td>";
+					// rebel
+				} else if($this->grid[$target] == 1000) {
+					$html .= "<td class='case ship_tiny_1_000'></td>";
+				} else if($this->grid[$target] == 1050) {
+					$html .= "<td class='case ship_small_1_050'></td>";
+				} else if($this->grid[$target] == 1100) {
+					$html .= "<td class='case ship_medium_1_100'></td>";
+				} else if($this->grid[$target] == 1200) {
+					$html .= "<td class='case ship_big_1_200'></td>";
+				} else if($this->grid[$target] == 1300) {
+					$html .= "<td class='case ship_huge_1_300'></td>";
+				//	
+				} else if($this->grid[$target] == 2000) {
+					$html .= "<td class='case ship_tiny_2_000'></td>";
+				} else if($this->grid[$target] == 2050) {
+					$html .= "<td class='case ship_small_2_050'></td>";
+				} else if($this->grid[$target] == 2100) {
+					$html .= "<td class='case ship_medium_2_100'></td>";
+				} else if($this->grid[$target] == 2200) {
+					$html .= "<td class='case ship_big_2_200'></td>";
+				} else if($this->grid[$target] == 2300) {
+					$html .= "<td class='case ship_huge_2_300'></td>";
+				} else {
+					$html .= "<td class='case empty'></td>";
 				}
 			}
 			$html .= "</tr>";

@@ -1,4 +1,4 @@
-<?php
+1<?php
 include_once("Object.class.php");
 include_once("Vec3.class.php");
 
@@ -6,16 +6,15 @@ abstract class Stuff implements Object {
 	public static $verbose = false;
 	public static $instance_classes = 0;
 
-	private $name = "UFO";
-	private $nickname = "ovni";
-	private $type = 1; // 1 mean is something
-	private $id = 0; // 1 mean is something
+	protected $name = "UFO";
+	protected $nickname = "ovni";
+	protected $type = 1; // 1 mean is something
+	protected $id = 0; // 1 mean is something
 
-	private $mass = 1;
-		private $size;
-	private $pos;
-	// private $size = new Vec3(array("xyz"=>1));
-	// private $pos = new Vec3(array("xyz"=>0));
+	protected $mass = 1;
+	protected $size;
+	protected $pos;
+
 	// constructor + destructor
 	function __construct($x, $y, $width, $height) {
 			if(is_numeric($x) && is_numeric($y)) {
@@ -42,38 +41,36 @@ abstract class Stuff implements Object {
 		}
   
   // set
-	function set_name($name) {
+	public function set_name($name) {
 		$this->name = $name;
 	}
 
-	function set_nickname($nickname) {
+	public function set_nickname($nickname) {
 		$this->nickname = $nickname;
 	}
 
-	function set_type($id) {
+	public function set_type($type) {
 		$this->type = $type;
 	}
 
-	function set_id($id) {
+	public function set_id($id) {
 		$this->id = $id;
 	}
 
-	function set_mass($mass) {
+	public function set_mass($mass) {
 		$this->mass = $mass;
 	}
 
-	function set_size($w, $h) {
+	public function set_size($w, $h) {
 		if($this->size != NULL) {
 			$this->size->set_x($w);
 			$this->size->set_y($h);		
 		} else {
 			$this->size = new Vec3(array("x"=>$w, "y"=>$h, "z"=>0));
 		}
-		// $this->size->set_x($w);
-		// $this->size->set_y($h);
 	}
 
-	function set_pos($x, $y) {
+	public function set_pos($x, $y) {
 		if($this->pos != NULL) {
 			$this->pos->set_x($x);
 			$this->pos->set_y($y);		
@@ -83,40 +80,40 @@ abstract class Stuff implements Object {
 	}
   
   // get
-	function get_name():string {
-		return $this->name;
+	public function get_name():string {
+		return (string)$this->name;
 	}
 
-	function get_nickname():string {
-		return $this->nickname;
+	public function get_nickname():string {
+		return (string)$this->nickname;
 	}
 
-	function get_id():int{
-		return $this->id;
+	public function get_id():int{
+		return (int)$this->id;
 	}
 
-	function get_type():int{
-		return $this->type;
+	public function get_type():int{
+		return (int)$this->type;
 	}
 
-	function get_mass():int {
-		return $this->mass;
+	public function get_mass():int {
+		return (int)$this->mass;
 	}
 
-	function get_size() {
+	public function get_size() {
 		return $this->size;
 	}
 
-	function get_pos() {
+	public function get_pos() {
 		return $this->pos;
 	}
 
-	function get_pos_x():float {
-		return $this->pos->get_x();
+	public function get_pos_x():float {
+		return (float)$this->pos->get_x();
 	}
 
-	function get_pos_y():float {
-		return $this->pos->get_y();
+	public function get_pos_y():float {
+		return (float)$this->pos->get_y();
 	}
 }
 ?>

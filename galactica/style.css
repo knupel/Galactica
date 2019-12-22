@@ -4,10 +4,6 @@
 */
 .empty {
 	background-color: black;
-/*	width:100%;
-	height:100%;*/
-/*	width:3%;
-	height:3%;*/
 	width:5px;
 	height:5px;
 	border-style: hidden;
@@ -19,9 +15,65 @@
 	height:5px;
 }
 
+/* rebel */
+.ship_tiny_1_000 {
+	background-color: red;
+	width:5px;
+	height:5px;
+}
 
-.ship_0 {
-	background-color: white;
+.ship_small_1_050 {
+	background-color: red;
+	width:5px;
+	height:5px;
+}
+
+.ship_medium_1_100 {
+	background-color: red;
+	width:5px;
+	height:5px;
+}
+
+.ship_big_1_200 {
+	background-color: red;
+	width:5px;
+	height:5px;
+}
+
+.ship_huge_1_300 {
+	background-color: red;
+	width:5px;
+	height:5px;
+}
+
+
+/* empire */
+.ship_tiny_2_000 {
+	background-color: cyan;
+	width:5px;
+	height:5px;
+}
+
+.ship_small_2_050 {
+	background-color: cyan;
+	width:5px;
+	height:5px;
+}
+
+.ship_medium_2_100 {
+	background-color: cyan;
+	width:5px;
+	height:5px;
+}
+
+.ship_big_2_200 {
+	background-color: cyan;
+	width:5px;
+	height:5px;
+}
+
+.ship_huge_2_300 {
+	background-color: cyan;
 	width:5px;
 	height:5px;
 }

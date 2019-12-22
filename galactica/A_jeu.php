@@ -30,29 +30,14 @@
 	// SHOW
 	$map = new Map($canvas,$list_obj);
 	$map->set_map($list_obj);
-	// print_r($map->get_grid());
-
 	// UPDATE
-  // update_game($canvas, $map, $list_fleet);
+  update_game($canvas, $map, $list_fleet);
   $round++;
 
 	print($map->show_map());
 
 
-	function map_generator($canvas, $list):array {
-		$num_ufo = rand(1,10);
-		$index = 0;
-		while($index < $num_ufo) {
-			$x = (int)rand(0, $canvas->get_x());
-			$y = (int)rand(0, $canvas->get_y());
-			$sx = (int)rand(1,20);
-			$sy = (int)rand(1,20);
-			$obj = new S_Asteroid($x, $y, $sx, $sy);
-			array_push($list,$obj);
-			$index++;
-		}
-		return $list;
-	}
+	
 
 	
   
@@ -68,17 +53,30 @@
 	}
 
 
-
-  
+	function map_generator($canvas, $list):array {
+		$num_ufo = rand(2,10);
+		$marge = 10 ;
+		$index = 0;
+		while($index < $num_ufo) {
+			$x = (int)rand($marge, $canvas->get_x() -$marge);
+			$y = (int)rand($marge, $canvas->get_y() -$marge);
+			$sx = (int)rand(5,10);
+			$sy = (int)rand(5,10);
+			$obj = new S_Asteroid($x, $y, $sx, $sy);
+			array_push($list,$obj);
+			$index++;
+		}
+		return $list;
+	}
 
   // GAME
 	function update_game($canvas, $map, $list_fleet) {
 		// order();
 		init_fleet($canvas, $list_fleet);
 		show_fleet($canvas, $map, $list_fleet);
-		move($map, $list_fleet);
-		shoot();
-		score();
+		// move($map, $list_fleet);
+		// shoot();
+		// score();
 	}
 
 	function move($map, $list_fleet) {

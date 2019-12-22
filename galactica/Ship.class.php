@@ -1,16 +1,19 @@
 <?php
-include_once("Group.class.php");
+include_once("Group.trait.php");
 include_once("SH_Engine.class.php");
 include_once("SH_Weapon.class.php");
 
-class Ship extends Group implements Object {
-  // here we need Trait to share the thee method name, size... may be ?
-	private $mass; // point de coque
-	private $size; // Vec2 h*w
-	private $pos;
-	private $dir; // need for the weapon
+class Ship extends Stuff {
+	use Group;
 
-	private $type;
+	private $dir; // need for the weapon
+	function __construct($name, $nickname, $group) {
+		$this->name = $name;
+		$this->nickname = $nickname;
+		$this->group = $group;
+		$this->set_type_ship();
+		return;
+	}
 
 	// $armor; // bouclier
 	private $force_field; // bouclier + need power
@@ -23,7 +26,35 @@ class Ship extends Group implements Object {
 	private $slot_weapon; // size - mass
 	private $weapon_list;
 
-	public function build() {
+	public function set_type_ship() {
+		// here need to check the data base to set the type of the ship
+		$grp = strtolower($this->group);
+		$n = strtolower($this->name);
+		// rebel
+		if(strcmp($grp,"rebel") == 0) {
+			if(strcmp($n,"cruiser") == 0) {
+				$this->set_type(1100);
+			} else if(strcmp($n,"destroyer") == 0) {
+				$this->set_type(1200);
+			} else {
+				$this->set_type(1000);
+			}
+		}
+		// empire
+		if(strcmp($grp,"empire") == 0) {
+			if(strcmp($n,"cruiser") == 0) {
+				$this->set_type(2100);
+			} else if(strcmp($n,"destroyer") == 0) {
+				$this->set_type(2200);
+			} else {
+				$this->set_type(2000);
+			}
+		}
+
+	}
+
+	public function build($width, $height) {
+		$this->set_size($width, $height);
 		settype($is, "boolean");
 		settype($born_is, "boolean");
 		settype($dead_is, "boolean");
@@ -36,34 +67,8 @@ class Ship extends Group implements Object {
 		array_push($this->weapon_list,$weapon);
 	}
 
-	// set
-	public function set_name($name) {
-		$this->name = $name;
-	}
-
-	public function set_id($id) {
-		$this->id = $id;
-	}
-
-	public function set_type($type) {
-		$this->type = $type;
-	}
-
-	public function set_mass($mass) {
-		$this->mass = $mass;
-	}
-
 	public function set_dir($dir) {
 		$this->dir = $dir;
-	}
-
-	public function set_size($w, $h) {
-
-		$this->size = new Vec3(array("x"=>$w, "y"=>$h, "z"=>0));;
-	}
-
-	public function set_pos($x, $y) {
-		$this->pos = new Vec3(array("x"=>$x, "y"=>$y, "z"=>0));
 	}
   
   public function set_is($is) {
@@ -78,7 +83,6 @@ class Ship extends Group implements Object {
 		$this->$dead_is = $dead_is;
 	}
 	
-  
   // get
 	public function get_is() {
 		return $this->is;
@@ -92,32 +96,8 @@ class Ship extends Group implements Object {
 		return $this->dead_is;
 	}
 
-  public function get_name():string{
-		return $this->name;
-	}
-
-	public function get_id():int{
-		return $this->id;
-	}
-
-	public function get_type():int{
-		return $this->type;
-	}
-
-	public function get_mass():int {
-		return $this->mass = 0;
-	}
-
 	public function get_dir():int {
 		return $this->dir;
-	}
-
-	public function get_size() {
-		return $this->size;
-	}
-
-	public function get_pos() {
-		return $this->pos;
 	}
 }
 ?>
